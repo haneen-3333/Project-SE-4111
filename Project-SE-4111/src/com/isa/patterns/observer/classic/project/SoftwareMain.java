@@ -1,6 +1,7 @@
 package com.isa.patterns.observer.classic.project;
 
 
+
 public class SoftwareMain {
 
     public static void main(String[] args) {
@@ -8,9 +9,6 @@ public class SoftwareMain {
         final SoftwareStation software = new SoftwareStation("Whatsapp");
         final SoftwareStation software2 = new SoftwareStation("Youtube");
         final SoftwareStation software3 = new SoftwareStation("Instagram");
-
-        
-        
         
         final SpecificSoftwareUpdate specificSoftwareUpdate = new SpecificSoftwareUpdate();
         software.registerObserver(specificSoftwareUpdate); 
@@ -23,15 +21,13 @@ public class SoftwareMain {
         
         for (int i = 0; i < 2; i++) {
         // enter the status of the program is new, updated, unsafe
-        	software.setSoftwareStatus("updated");
-        	software2.setSoftwareStatus("New");
-        	software3.setSoftwareStatus("unsafe");
+        	software.getSoftwareStatus("updated");
+        	software2.getSoftwareStatus("New");
+        	software3.getSoftwareStatus("unsafe");
         	
             software3.removeObserver(unsafeSoftware); 
             System.out.println("***************************************");
-        }
-        
-    }
-    
+        }   
+    }   
 }
 

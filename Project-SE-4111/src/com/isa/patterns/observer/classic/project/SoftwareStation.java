@@ -1,5 +1,6 @@
 package com.isa.patterns.observer.classic.project;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,8 +9,6 @@ public class SoftwareStation implements Subject {
     private final List<Observer> observersList;
     private String softwareName;
     private String softwareStatus;
-
-    
 
     public SoftwareStation(String softwareName) {
     	this.softwareName = softwareName;
@@ -28,23 +27,27 @@ public class SoftwareStation implements Subject {
 
     public void notifyObservers() {
         for (Observer o : observersList) {
-            o.update(softwareStatus);
+        	o.update(softwareStatus);  
         }
     }
-
  
     public void setSoftwareStatus(String status) {
 
     	if(status.equalsIgnoreCase("new")){
-    		softwareStatus = this.softwareName + " is an new program";
+    		this.softwareStatus = this.softwareName + " is an new program";
     	} else if(status.equalsIgnoreCase("updated")){
-    		softwareStatus = this.softwareName + " is an updated program";
+    		this.softwareStatus = this.softwareName + " is an updated program";
     	} else if(status.equalsIgnoreCase("unsafe")){
-    		softwareStatus = this.softwareName + " is an unsafe program";
+    		this.softwareStatus = this.softwareName + " is an unsafe program";
     	} else {
-    		softwareStatus = "You entered the wrong status,please enter the status of the program as new, updated, or unsafe";
+    		this.softwareStatus = "You entered the wrong status,please enter the status of the program as new, updated, or unsafe";
     	}
         notifyObservers();
+    }
+    
+    public String getSoftwareStatus(String status) {
+    	setSoftwareStatus(status);
+		return softwareStatus;	
     }
 
 
